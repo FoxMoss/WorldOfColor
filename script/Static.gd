@@ -20,8 +20,8 @@ var levels = [
 		"completed": false
 	},
 	{
-		"name": "Level ?:\nBullet Waves",
-		"color": "e6c369",
+		"name": "Level Peach:\nBullet Waves",
+		"color": "f8a095",
 		"path": "res://Level3.tscn",
 		"completed": false
 	}

@@ -52,7 +52,7 @@ size = 32
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
-[node name="Main" type="Node2D"]
+[node name="Main2" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
 friction = 1.4
