@@ -52,15 +52,7 @@ size = 32
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
-[node name="Main2" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource( 7 )]
-friction = 1.4
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 3.8147e-06, 892.5 )
-scale = Vector2( 10, 27 )
-texture = ExtResource( 2 )
+[node name="Main" type="Node2D"]
 
 [node name="WallManager" type="TileMap" parent="."]
 z_index = -4
@@ -96,7 +88,7 @@ position = Vector2( 0.00012207, 51 )
 [node name="Useless2" parent="ShooterManager" instance=ExtResource( 3 )]
 position = Vector2( 561, -918 )
 rotation = -1.57079
-delay = 0.1
+delay = 0.4
 shots = 16
 speed = 1.0
 rotation_speed = 0.4
@@ -263,6 +255,14 @@ custom_fonts/font = SubResource( 5 )
 text = "Screw you"
 align = 1
 valign = 1
+
+[node name="Player" parent="." instance=ExtResource( 7 )]
+friction = 1.4
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 3.8147e-06, 892.5 )
+scale = Vector2( 10, 27 )
+texture = ExtResource( 2 )
 
 [editable path="ShooterManager/Useless"]
 [editable path="ShooterManager/Useless2"]

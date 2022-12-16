@@ -10,7 +10,7 @@ export var lifespan: int = 6000
 export var distance: int = 800
 export var sine: float = 0
 export var sine_slowdown: float = 100
-
+export var follow_player: bool = false
 
 var timer
 var bullet
@@ -19,6 +19,7 @@ var life: float = 0
 
 var p1: Vector2
 var p2: Vector2
+var dist_from_player: Vector2
 
 func _init():
 	timer = Timer.new()
@@ -33,16 +34,22 @@ func _ready():
 	$Sprite.modulate = color
 	p1 = $p1.global_position
 	p2 = $p2.global_position
+	dist_from_player = get_node("/root/Main/Player").position - position
 
 func _process(delta):
-	life += delta
-	if(life < move_length):
-		position = lerp(p1, p2, life/move_length)
-	elif(life > move_length*2):
-		life = life - move_length*2
-	elif(life > move_length):
-		position = lerp(p2, p1, life/move_length-1)
-	$MainBody.rotation = lerp_angle($MainBody.rotation, added_rotation/10, 0.1)
+	if(!follow_player):
+		life += delta
+		if(life < move_length):
+			position = lerp(p1, p2, life/move_length)
+		elif(life > move_length*2):
+			life = life - move_length*2
+		elif(life > move_length):
+			position = lerp(p2, p1, life/move_length-1)
+		$MainBody.rotation = lerp_angle($MainBody.rotation, added_rotation/10, 0.1)
+	else:
+		position = get_node("/root/Main/Player").position - dist_from_player
+		position.x = clamp(position.x, p1.x, p2.x)
+		position.y = clamp(position.y, p1.y, p2.y)
 
 func _shoot():
 	added_rotation += rotation_speed

@@ -11,7 +11,7 @@
 [ext_resource path="res://scene/Shield.tscn" type="PackedScene" id=9]
 [ext_resource path="res://textures/unifont-15.0.01.ttf" type="DynamicFontData" id=10]
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 51, 51, 0, 51, 0, 0, 51, 0 )
 
 [sub_resource type="TileSet" id=4]
@@ -25,14 +25,14 @@ points = PoolVector2Array( 51, 51, 0, 51, 0, 0, 51, 0 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 3 )
+0/shape = SubResource( 7 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 7 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -47,7 +47,6 @@ font_data = ExtResource( 10 )
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 3111, -1224 )
 friction = 1.4
 
 [node name="WallManager" type="TileMap" parent="."]
