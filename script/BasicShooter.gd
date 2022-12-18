@@ -11,11 +11,13 @@ export var distance: int = 800
 export var sine: float = 0
 export var sine_slowdown: float = 100
 export var follow_player: bool = false
+export var rainbow: bool = false
 
 var timer
 var bullet
 var added_rotation = 0
 var life: float = 0
+var last_color = Color.from_hsv(0,1,1)
 
 var p1: Vector2
 var p2: Vector2
@@ -37,6 +39,9 @@ func _ready():
 	dist_from_player = get_node("/root/Main/Player").position - position
 
 func _process(delta):
+	if(rainbow):
+		color = Color.from_hsv(color.h+delta/2.3, 1, 1)
+		$Sprite.modulate = color
 	if(!follow_player):
 		life += delta
 		if(life < move_length):
@@ -55,12 +60,12 @@ func _shoot():
 	added_rotation += rotation_speed
 	for x in range(0, shots):
 		var bul = bullet.instance()
-		bul.position = position
+		bul.position = global_position
 		bul.rotation = rotation + (PI*2/shots*x) + added_rotation/10
 		bul.get_node("Sprite").modulate = color
 		bul.speed = speed
 		bul.deathday = Time.get_ticks_msec()+lifespan
-		bul.distance = distance
+		bul.distance = distance*3
 		bul.sine=sine
 		bul.sine_slowdown = sine_slowdown
 		

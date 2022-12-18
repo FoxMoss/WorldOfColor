@@ -14,8 +14,9 @@ script = ExtResource( 3 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 2.0
+margin_left = -51.0
 margin_top = 102.0
-margin_right = 102.0
+margin_right = 153.0
 margin_bottom = 153.0
 custom_fonts/font = SubResource( 1 )
 text = "Level Pink:
@@ -25,7 +26,6 @@ valign = 1
 clip_text = true
 
 [node name="Icon" type="Sprite" parent="."]
-modulate = Color( 0.898039, 0.239216, 0.388235, 1 )
 position = Vector2( 51, 51 )
 scale = Vector2( 1.59375, 1.59375 )
 texture = ExtResource( 2 )

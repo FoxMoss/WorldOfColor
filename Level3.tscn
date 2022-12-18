@@ -81,7 +81,7 @@ delay = 0.2
 shots = 2
 speed = 0.8
 rotation_speed = 0.8
-color = Color( 0.901961, 0.764706, 0.411765, 1 )
+color = Color( 0.592157, 0.360784, 0.67451, 1 )
 lifespan = 5000
 sine = 4.0
 sine_slowdown = 200.0
@@ -93,7 +93,7 @@ delay = 1.6
 shots = 8
 speed = 1.0
 rotation_speed = 0.5
-color = Color( 0.901961, 0.764706, 0.411765, 1 )
+color = Color( 0.576471, 0.666667, 0.886275, 1 )
 lifespan = 5000
 sine = 2.0
 sine_slowdown = 200.0
@@ -118,7 +118,7 @@ delay = 0.8
 shots = 3
 speed = 1.0
 rotation_speed = 2.0
-color = Color( 0.901961, 0.764706, 0.411765, 1 )
+color = Color( 0.666667, 0.870588, 0.431373, 1 )
 lifespan = 5000
 sine = 4.0
 sine_slowdown = 400.0
@@ -177,12 +177,12 @@ position = Vector2( 3111, -1224 )
 [node name="Sword" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1071, -3060 )
 level = "res://Map.tscn"
-id = 3
+id = 4
 
 [node name="Sword2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 5049, -1326 )
-level = "res://Map.tscn"
-id = 3
+level = "res://SecretWin.tscn"
+id = 4
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.760784, 0.733333, 0.721569, 1 )

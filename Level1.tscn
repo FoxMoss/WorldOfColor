@@ -274,7 +274,7 @@ position = Vector2( -102, -561 )
 [node name="Sword" parent="." instance=ExtResource( 5 )]
 position = Vector2( 459, -969 )
 level = "res://Map.tscn"
-id = 1
+id = 2
 
 [editable path="ShooterManager/Opt1"]
 [editable path="ShooterManager/Opt2"]
