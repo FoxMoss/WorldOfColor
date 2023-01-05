@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://script/Screen.gd" type="Script" id=1]
 [ext_resource path="res://textures/unifont-15.0.01.ttf" type="DynamicFontData" id=2]
@@ -16,7 +16,12 @@ font_data = ExtResource( 2 )
 bg_color = Color( 0.756863, 0.74902, 0.745098, 1 )
 corner_detail = 1
 
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 2 )
+
 [node name="Map" type="Node2D"]
+position = Vector2( 1, 0 )
 script = ExtResource( 4 )
 
 [node name="Player" type="Sprite" parent="."]
@@ -47,7 +52,10 @@ custom_colors/font_color = Color( 0.756863, 0.74902, 0.745098, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "By FoxMoss of fishme.me
 
-WASD or ↑←↓→"
+WASD or ↑←↓→
+
+u to unlock all the levels 
+t to show the timer (disables unlock)"
 
 [node name="Screen" type="CanvasLayer" parent="."]
 script = ExtResource( 1 )
@@ -60,3 +68,8 @@ margin_top = -5.0
 margin_right = 5.0
 margin_bottom = 5.0
 custom_styles/panel = SubResource( 1 )
+
+[node name="Time" type="Label" parent="Screen"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 4 )

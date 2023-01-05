@@ -7,7 +7,7 @@
 script/source = "extends Node2D
 
 func _input(event):
-	if(Input.is_action_just_pressed(\"move_up\") || Input.is_action_just_pressed(\"move_down\")):
+	if(Input.is_action_just_pressed(\"move_up\") || Input.is_action_just_pressed(\"move_down\") || Input.is_action_just_pressed(\"move_escape\")):
 		$Screen.fade_to_white(\"res://Map.tscn\")
 "
 
@@ -69,6 +69,7 @@ custom_colors/font_color = Color( 0.756863, 0.74902, 0.745098, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "there is no more color, idk what to tell you man. 
 
+you can go to the map with the ecape key
 
 
 

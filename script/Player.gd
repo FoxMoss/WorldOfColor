@@ -26,6 +26,7 @@ func _physics_process(delta):
 	
 	velocity /= friction
 	velocity_raw = Vector2.ZERO
+	
 
 func _respawn_change():
 	respawn.get_node("Sprite").texture = respawn.sprite1

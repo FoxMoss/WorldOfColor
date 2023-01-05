@@ -1,6 +1,7 @@
 extends Node
 
-var levels = [
+var levels
+var og = [
 	{
 		"completed_req": 0,
 		"name": "Level Pink:\nIntro",
@@ -61,3 +62,9 @@ var levels = [
 		"invisible": false
 	}
 ]
+
+var show_timer = false
+var time_offset = 0
+
+func _ready():
+	levels = og.duplicate(true)

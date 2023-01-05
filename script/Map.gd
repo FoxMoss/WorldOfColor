@@ -28,5 +28,9 @@ func _input(event):
 		id -= 1
 	if((Input.is_action_just_pressed("move_up") || Input.is_action_just_pressed("move_down")) && !get_node("/root/Static").levels[id]["invisible"]):
 		$Screen.fade_to_white(get_node("/root/Static").levels[id]["path"])
+	if(Input.is_action_just_pressed("action_unlock") && !get_node("/root/Static").show_timer):
+		for a in range(0, size):
+			get_node("/root/Static").levels[a]["completed"] = true
+			$Screen.fade_to_white("res://Map.tscn")
 	id = clamp(id, 0, total_in - 1)
 	$Player.position.x = 51+153*id
