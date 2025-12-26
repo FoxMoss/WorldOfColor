@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://script/BulletManager.gd" type="Script" id=1]
 [ext_resource path="res://textures/wall/1.png" type="Texture" id=2]
@@ -6,7 +6,15 @@
 [ext_resource path="res://scene/Checkpoint.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scene/Sword.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scene/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://textures/unifont-15.0.01.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://fonts/Lato-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://textures/keyboard/Dark/S_Key_Dark.png" type="Texture" id=8]
+[ext_resource path="res://textures/keyboard/Dark/Arrow_Down_Key_Dark.png" type="Texture" id=9]
+[ext_resource path="res://textures/keyboard/Dark/Arrow_Left_Key_Dark.png" type="Texture" id=10]
+[ext_resource path="res://textures/keyboard/Dark/D_Key_Dark.png" type="Texture" id=11]
+[ext_resource path="res://textures/keyboard/Dark/Arrow_Right_Key_Dark.png" type="Texture" id=12]
+[ext_resource path="res://textures/keyboard/Dark/Arrow_Up_Key_Dark.png" type="Texture" id=13]
+[ext_resource path="res://textures/keyboard/Dark/A_Key_Dark.png" type="Texture" id=14]
+[ext_resource path="res://textures/keyboard/Dark/W_Key_Dark.png" type="Texture" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 51, 51, 0, 51, 0, 0, 51, 0 )
@@ -33,6 +41,9 @@ points = PoolVector2Array( 51, 51, 0, 51, 0, 0, 51, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 32
@@ -377,29 +388,122 @@ position = Vector2( 2091, 1836 )
 position = Vector2( 3672, 1810 )
 level = "res://Map.tscn"
 
-[node name="Label" type="Label" parent="."]
-margin_left = 357.0
-margin_top = -255.0
-margin_right = 765.0
-margin_bottom = -102.0
-rect_pivot_offset = Vector2( 102, 102 )
-custom_colors/font_color = Color( 0.12549, 0.0862745, 0.0862745, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Avoid The Void 3:
-Avoid The Color 2:
-World of Color"
-align = 1
-valign = 1
+[node name="Label5" type="Label" parent="."]
+margin_left = -268.0
+margin_top = 252.0
+margin_right = -180.0
+margin_bottom = 276.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Movement:"
+
+[node name="Arrow Keys" type="HBoxContainer" parent="Label5"]
+margin_left = 107.0
+margin_top = 8.0
+margin_right = 373.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_constants/separation = 80
+
+[node name="Control3" type="Control" parent="Label5/Arrow Keys"]
+margin_bottom = 32.0
+
+[node name="ArrowDownKeyDark" type="Sprite" parent="Label5/Arrow Keys/Control3"]
+texture = ExtResource( 9 )
+
+[node name="Control2" type="Control" parent="Label5/Arrow Keys"]
+margin_left = 80.0
+margin_right = 80.0
+margin_bottom = 32.0
+
+[node name="ArrowLeftKeyDark" type="Sprite" parent="Label5/Arrow Keys/Control2"]
+texture = ExtResource( 10 )
+
+[node name="Control4" type="Control" parent="Label5/Arrow Keys"]
+margin_left = 160.0
+margin_right = 160.0
+margin_bottom = 32.0
+
+[node name="ArrowRightKeyDark" type="Sprite" parent="Label5/Arrow Keys/Control4"]
+texture = ExtResource( 12 )
+
+[node name="Control" type="Control" parent="Label5/Arrow Keys"]
+margin_left = 240.0
+margin_right = 240.0
+margin_bottom = 32.0
+
+[node name="ArrowUpKeyDark" type="Sprite" parent="Label5/Arrow Keys/Control"]
+texture = ExtResource( 13 )
+
+[node name="Arrow Keys2" type="HBoxContainer" parent="Label5"]
+margin_left = 288.0
+margin_top = 8.0
+margin_right = 528.0
+margin_bottom = 24.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_constants/separation = 80
+
+[node name="Control3" type="Control" parent="Label5/Arrow Keys2"]
+margin_bottom = 16.0
+
+[node name="ArrowDownKeyDark" type="Sprite" parent="Label5/Arrow Keys2/Control3"]
+position = Vector2( 0, -6.10352e-05 )
+texture = ExtResource( 15 )
+
+[node name="Control2" type="Control" parent="Label5/Arrow Keys2"]
+margin_left = 80.0
+margin_right = 80.0
+margin_bottom = 16.0
+
+[node name="ArrowLeftKeyDark" type="Sprite" parent="Label5/Arrow Keys2/Control2"]
+texture = ExtResource( 14 )
+
+[node name="Control4" type="Control" parent="Label5/Arrow Keys2"]
+margin_left = 160.0
+margin_right = 160.0
+margin_bottom = 16.0
+
+[node name="ArrowRightKeyDark" type="Sprite" parent="Label5/Arrow Keys2/Control4"]
+texture = ExtResource( 8 )
+
+[node name="Control" type="Control" parent="Label5/Arrow Keys2"]
+margin_left = 240.0
+margin_right = 240.0
+margin_bottom = 16.0
+
+[node name="ArrowUpKeyDark" type="Sprite" parent="Label5/Arrow Keys2/Control"]
+texture = ExtResource( 11 )
+
+[node name="Label4" type="Label" parent="Label5"]
+margin_left = 248.0
+margin_right = 263.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 0.756863, 0.74902, 0.745098, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "or"
 
 [node name="Label3" type="Label" parent="."]
 margin_left = 714.0
 margin_top = -561.0
 margin_right = 1122.0
 margin_bottom = -408.0
-rect_pivot_offset = Vector2( 102, 102 )
+rect_pivot_offset = Vector2( 764, 127 )
 custom_colors/font_color = Color( 0.12549, 0.0862745, 0.0862745, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "Too much color, my eyes hurt. Please slay the color."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label6" type="Label" parent="."]
+margin_left = 392.0
+margin_top = -560.0
+margin_right = 800.0
+margin_bottom = -407.0
+rect_pivot_offset = Vector2( 764, 127 )
+custom_colors/font_color = Color( 0.12549, 0.0862745, 0.0862745, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "The walls say this:"
 align = 1
 valign = 1
 autowrap = true
@@ -416,15 +520,3 @@ text = "Take the sword and free the world."
 align = 1
 valign = 1
 autowrap = true
-
-[node name="Label2" type="Label" parent="."]
-margin_left = -204.0
-margin_top = 204.0
-margin_right = 204.0
-margin_bottom = 306.0
-rect_pivot_offset = Vector2( 102, 102 )
-custom_colors/font_color = Color( 0.12549, 0.0862745, 0.0862745, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "WASD or ↑←↓→"
-align = 1
-valign = 1

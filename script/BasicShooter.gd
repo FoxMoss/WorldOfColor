@@ -13,6 +13,7 @@ export var sine_slowdown: float = 100
 export var follow_player: bool = false
 export var rainbow: bool = false
 
+
 var timer
 var bullet
 var added_rotation = 0

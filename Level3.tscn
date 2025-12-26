@@ -9,7 +9,7 @@
 [ext_resource path="res://scene/Block.tscn" type="PackedScene" id=7]
 [ext_resource path="res://textures/wall/3.png" type="Texture" id=8]
 [ext_resource path="res://scene/Shield.tscn" type="PackedScene" id=9]
-[ext_resource path="res://textures/unifont-15.0.01.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://fonts/Lato-Regular.ttf" type="DynamicFontData" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 51, 51, 0, 51, 0, 0, 51, 0 )

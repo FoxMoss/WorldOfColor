@@ -1,16 +1,29 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://script/Screen.gd" type="Script" id=1]
 [ext_resource path="res://textures/unifont-15.0.01.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://textures/player/1.png" type="Texture" id=3]
 [ext_resource path="res://script/Map.gd" type="Script" id=4]
+[ext_resource path="res://textures/keyboard/Dark/Arrow_Right_Key_Dark.png" type="Texture" id=5]
+[ext_resource path="res://textures/keyboard/Dark/Arrow_Left_Key_Dark.png" type="Texture" id=6]
+[ext_resource path="res://fonts/Lato-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://fonts/Lato-Black.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://textures/keyboard/Dark/Arrow_Down_Key_Dark.png" type="Texture" id=9]
+[ext_resource path="res://textures/keyboard/Dark/Arrow_Up_Key_Dark.png" type="Texture" id=10]
+[ext_resource path="res://textures/keyboard/Dark/S_Key_Dark.png" type="Texture" id=11]
+[ext_resource path="res://textures/keyboard/Dark/D_Key_Dark.png" type="Texture" id=12]
+[ext_resource path="res://textures/keyboard/Dark/A_Key_Dark.png" type="Texture" id=13]
+[ext_resource path="res://textures/keyboard/Dark/W_Key_Dark.png" type="Texture" id=14]
+[ext_resource path="res://textures/keyboard/Dark/U_Key_Dark.png" type="Texture" id=15]
+[ext_resource path="res://textures/keyboard/Dark/T_Key_Dark.png" type="Texture" id=16]
+[ext_resource path="res://textures/keyboard/Dark/Plus_Key_Dark.png" type="Texture" id=17]
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
-font_data = ExtResource( 2 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=3]
-font_data = ExtResource( 2 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.756863, 0.74902, 0.745098, 1 )
@@ -50,12 +63,144 @@ margin_right = 255.0
 margin_bottom = -99.0
 custom_colors/font_color = Color( 0.756863, 0.74902, 0.745098, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "By FoxMoss of fishme.me
+text = "By foxmoss.com
+"
 
-WASD or ↑←↓→
+[node name="Label4" type="Label" parent="Player/Camera2D"]
+margin_left = -12.0
+margin_top = -77.0
+margin_right = 116.0
+margin_bottom = -53.0
+custom_colors/font_color = Color( 0.756863, 0.74902, 0.745098, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Unlock All Levels:"
 
-u to unlock all the levels 
-t to show the timer (disables unlock)"
+[node name="UKeyDark" type="Sprite" parent="Player/Camera2D/Label4"]
+position = Vector2( 144, 8.00002 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 15 )
+
+[node name="Label6" type="Label" parent="Player/Camera2D"]
+margin_left = 68.0
+margin_top = -37.0
+margin_right = 196.0
+margin_bottom = -13.0
+custom_colors/font_color = Color( 0.756863, 0.74902, 0.745098, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Play the DLC:"
+
+[node name="UKeyDark" type="Sprite" parent="Player/Camera2D/Label6"]
+position = Vector2( 120, 8.00002 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 17 )
+
+[node name="Label5" type="Label" parent="Player/Camera2D"]
+margin_left = 164.0
+margin_top = -77.0
+margin_right = 292.0
+margin_bottom = -53.0
+custom_colors/font_color = Color( 0.756863, 0.74902, 0.745098, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Speedrun Timer:"
+
+[node name="TKeyDark" type="Sprite" parent="Player/Camera2D/Label5"]
+position = Vector2( 136, 7.99997 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 16 )
+
+[node name="Label3" type="Label" parent="Player/Camera2D"]
+margin_left = -12.0
+margin_top = -117.0
+margin_right = 76.0
+margin_bottom = -93.0
+custom_colors/font_color = Color( 0.756863, 0.74902, 0.745098, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Movement:"
+
+[node name="Arrow Keys" type="HBoxContainer" parent="Player/Camera2D/Label3"]
+margin_left = 107.0
+margin_top = 8.0
+margin_right = 373.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_constants/separation = 80
+
+[node name="Control3" type="Control" parent="Player/Camera2D/Label3/Arrow Keys"]
+margin_bottom = 32.0
+
+[node name="ArrowDownKeyDark" type="Sprite" parent="Player/Camera2D/Label3/Arrow Keys/Control3"]
+texture = ExtResource( 9 )
+
+[node name="Control2" type="Control" parent="Player/Camera2D/Label3/Arrow Keys"]
+margin_left = 80.0
+margin_right = 80.0
+margin_bottom = 32.0
+
+[node name="ArrowLeftKeyDark" type="Sprite" parent="Player/Camera2D/Label3/Arrow Keys/Control2"]
+texture = ExtResource( 6 )
+
+[node name="Control4" type="Control" parent="Player/Camera2D/Label3/Arrow Keys"]
+margin_left = 160.0
+margin_right = 160.0
+margin_bottom = 32.0
+
+[node name="ArrowRightKeyDark" type="Sprite" parent="Player/Camera2D/Label3/Arrow Keys/Control4"]
+texture = ExtResource( 5 )
+
+[node name="Control" type="Control" parent="Player/Camera2D/Label3/Arrow Keys"]
+margin_left = 240.0
+margin_right = 240.0
+margin_bottom = 32.0
+
+[node name="ArrowUpKeyDark" type="Sprite" parent="Player/Camera2D/Label3/Arrow Keys/Control"]
+texture = ExtResource( 10 )
+
+[node name="Arrow Keys2" type="HBoxContainer" parent="Player/Camera2D/Label3"]
+margin_left = 288.0
+margin_top = 8.0
+margin_right = 528.0
+margin_bottom = 24.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_constants/separation = 80
+
+[node name="Control3" type="Control" parent="Player/Camera2D/Label3/Arrow Keys2"]
+margin_bottom = 16.0
+
+[node name="ArrowDownKeyDark" type="Sprite" parent="Player/Camera2D/Label3/Arrow Keys2/Control3"]
+position = Vector2( 0, -6.10352e-05 )
+texture = ExtResource( 14 )
+
+[node name="Control2" type="Control" parent="Player/Camera2D/Label3/Arrow Keys2"]
+margin_left = 80.0
+margin_right = 80.0
+margin_bottom = 16.0
+
+[node name="ArrowLeftKeyDark" type="Sprite" parent="Player/Camera2D/Label3/Arrow Keys2/Control2"]
+texture = ExtResource( 13 )
+
+[node name="Control4" type="Control" parent="Player/Camera2D/Label3/Arrow Keys2"]
+margin_left = 160.0
+margin_right = 160.0
+margin_bottom = 16.0
+
+[node name="ArrowRightKeyDark" type="Sprite" parent="Player/Camera2D/Label3/Arrow Keys2/Control4"]
+texture = ExtResource( 11 )
+
+[node name="Control" type="Control" parent="Player/Camera2D/Label3/Arrow Keys2"]
+margin_left = 240.0
+margin_right = 240.0
+margin_bottom = 16.0
+
+[node name="ArrowUpKeyDark" type="Sprite" parent="Player/Camera2D/Label3/Arrow Keys2/Control"]
+texture = ExtResource( 12 )
+
+[node name="Label4" type="Label" parent="Player/Camera2D/Label3"]
+margin_left = 248.0
+margin_right = 263.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 0.756863, 0.74902, 0.745098, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "or"
 
 [node name="Screen" type="CanvasLayer" parent="."]
 script = ExtResource( 1 )

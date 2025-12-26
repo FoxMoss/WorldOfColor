@@ -34,3 +34,6 @@ func _input(event):
 			$Screen.fade_to_white("res://Map.tscn")
 	id = clamp(id, 0, total_in - 1)
 	$Player.position.x = 51+153*id
+	
+	if(Input.is_action_just_pressed("dlc")):
+		$Screen.fade_to_white("res://returntocolor/Map.tscn")

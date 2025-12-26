@@ -1,0 +1,212 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://returntocolor/Shooter.gd" type="Script" id=1]
+[ext_resource path="res://textures/circle/1.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 25.0
+
+[sub_resource type="VisualShaderNodeInput" id=2]
+input_name = "alpha"
+
+[sub_resource type="VisualShaderNodeCompare" id=3]
+output_port_for_preview = 0
+function = 2
+
+[sub_resource type="VisualShaderNodeScalarOp" id=4]
+
+[sub_resource type="VisualShaderNodeScalarOp" id=5]
+default_input_values = [ 0, 0.0, 1, 10.0 ]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorDistance" id=6]
+default_input_values = [ 0, Vector3( 0.5, 0.5, 0 ), 1, Vector3( 0, 0, 0 ) ]
+
+[sub_resource type="VisualShaderNodeCompare" id=7]
+default_input_values = [ 0, 0.0, 1, 0.5, 2, 1e-05 ]
+function = 2
+
+[sub_resource type="VisualShaderNodeScalarUniform" id=18]
+uniform_name = "bubblelevel"
+hint = 1
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeScalarOp" id=19]
+default_input_values = [ 0, 0.0, 1, -1.0 ]
+operator = 2
+
+[sub_resource type="VisualShaderNodeScalarConstant" id=20]
+constant = 20.0
+
+[sub_resource type="VisualShaderNodeScalarFunc" id=8]
+function = 0
+
+[sub_resource type="VisualShaderNodeScalarOp" id=21]
+operator = 2
+
+[sub_resource type="VisualShaderNodeInput" id=9]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id=10]
+
+[sub_resource type="VisualShaderNodeCompare" id=11]
+function = 4
+
+[sub_resource type="VisualShaderNodeScalarOp" id=12]
+default_input_values = [ 0, 0.0, 1, 20.0 ]
+operator = 2
+
+[sub_resource type="VisualShaderNodeScalarOp" id=13]
+default_input_values = [ 0, 0.0, 1, -2.0 ]
+
+[sub_resource type="VisualShaderNodeScalarOp" id=14]
+default_input_values = [ 0, 0.0, 1, 20.0 ]
+operator = 2
+
+[sub_resource type="VisualShaderNodeInput" id=15]
+input_name = "time"
+
+[sub_resource type="VisualShader" id=16]
+code = "shader_type canvas_item;
+uniform float bubblelevel : hint_range(0, 1) = 0;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Input:3
+	vec3 n_out3p0 = vec3(UV, 0.0);
+
+// VectorDecompose:4
+	float n_out4p0 = n_out3p0.x;
+	float n_out4p1 = n_out3p0.y;
+	float n_out4p2 = n_out3p0.z;
+
+// ScalarOp:6
+	float n_in6p1 = 20.00000;
+	float n_out6p0 = n_out4p0 * n_in6p1;
+
+// Input:9
+	float n_out9p0 = TIME;
+
+// ScalarOp:13
+	float n_in13p1 = 10.00000;
+	float n_out13p0 = n_out9p0 * n_in13p1;
+
+// ScalarOp:12
+	float n_out12p0 = n_out6p0 + n_out13p0;
+
+// ScalarFunc:2
+	float n_out2p0 = sin(n_out12p0);
+
+// Scalar:18
+	float n_out18p0 = 20.000000;
+
+// ScalarOp:8
+	float n_out8p0 = n_out4p1 * n_out18p0;
+
+// ScalarUniform:16
+	float n_out16p0 = bubblelevel;
+
+// ScalarOp:20
+	float n_out20p0 = n_out16p0 * n_out18p0;
+
+// ScalarOp:17
+	float n_in17p1 = -1.00000;
+	float n_out17p0 = n_out20p0 * n_in17p1;
+
+// ScalarOp:7
+	float n_out7p0 = n_out8p0 + n_out17p0;
+
+// Compare:5
+	bool n_out5p0 = n_out2p0<n_out7p0;
+
+// Distance:14
+	vec3 n_in14p0 = vec3(0.50000, 0.50000, 0.00000);
+	float n_out14p0 = distance(n_in14p0, n_out3p0);
+
+// Compare:15
+	float n_in15p1 = 0.50000;
+	bool n_out15p0 = n_out14p0>n_in15p1;
+
+// Compare:11
+	bool n_out11p0 = (n_out5p0 ? 1.0 : 0.0)>(n_out15p0 ? 1.0 : 0.0);
+
+// Output:0
+	COLOR.a = (n_out11p0 ? 1.0 : 0.0);
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -1553.98, 391.739 )
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2( 960, 80 )
+nodes/fragment/2/node = SubResource( 8 )
+nodes/fragment/2/position = Vector2( 260, 120 )
+nodes/fragment/3/node = SubResource( 9 )
+nodes/fragment/3/position = Vector2( -280, 140 )
+nodes/fragment/4/node = SubResource( 10 )
+nodes/fragment/4/position = Vector2( -180, 220 )
+nodes/fragment/5/node = SubResource( 11 )
+nodes/fragment/5/position = Vector2( 460, 140 )
+nodes/fragment/6/node = SubResource( 12 )
+nodes/fragment/6/position = Vector2( -20, 60 )
+nodes/fragment/7/node = SubResource( 13 )
+nodes/fragment/7/position = Vector2( 240, 220 )
+nodes/fragment/8/node = SubResource( 14 )
+nodes/fragment/8/position = Vector2( 40, 220 )
+nodes/fragment/9/node = SubResource( 15 )
+nodes/fragment/9/position = Vector2( -320, -160 )
+nodes/fragment/10/node = SubResource( 2 )
+nodes/fragment/10/position = Vector2( 520, 60 )
+nodes/fragment/11/node = SubResource( 3 )
+nodes/fragment/11/position = Vector2( 720, 60 )
+nodes/fragment/12/node = SubResource( 4 )
+nodes/fragment/12/position = Vector2( 180, 20 )
+nodes/fragment/13/node = SubResource( 5 )
+nodes/fragment/13/position = Vector2( -40, -160 )
+nodes/fragment/14/node = SubResource( 6 )
+nodes/fragment/14/position = Vector2( 480, -40 )
+nodes/fragment/15/node = SubResource( 7 )
+nodes/fragment/15/position = Vector2( 720, -100 )
+nodes/fragment/16/node = SubResource( 18 )
+nodes/fragment/16/position = Vector2( -740, 260 )
+nodes/fragment/17/node = SubResource( 19 )
+nodes/fragment/17/position = Vector2( -380, 260 )
+nodes/fragment/18/node = SubResource( 20 )
+nodes/fragment/18/position = Vector2( -620, 500 )
+nodes/fragment/20/node = SubResource( 21 )
+nodes/fragment/20/position = Vector2( -420, 380 )
+nodes/fragment/connections = PoolIntArray( 3, 0, 4, 0, 2, 0, 5, 0, 4, 0, 6, 0, 7, 0, 5, 1, 4, 1, 8, 0, 8, 0, 7, 0, 12, 0, 2, 0, 6, 0, 12, 0, 9, 0, 13, 0, 13, 0, 12, 1, 5, 0, 11, 0, 11, 0, 0, 1, 3, 0, 14, 1, 14, 0, 15, 0, 15, 0, 11, 1, 17, 0, 7, 1, 18, 0, 8, 1, 20, 0, 17, 0, 16, 0, 20, 0, 18, 0, 20, 1 )
+
+[sub_resource type="ShaderMaterial" id=17]
+shader = SubResource( 16 )
+shader_param/bubblelevel = 0.0
+
+[node name="BasicShooter" type="StaticBody2D"]
+z_index = -3
+z_as_relative = false
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="MainBody" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 17 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+
+[node name="p1" type="Node2D" parent="."]
+
+[node name="p2" type="Node2D" parent="."]

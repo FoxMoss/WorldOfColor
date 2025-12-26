@@ -3,7 +3,7 @@
 [ext_resource path="res://textures/player/1.png" type="Texture" id=1]
 [ext_resource path="res://script/Player.gd" type="Script" id=2]
 [ext_resource path="res://script/Screen.gd" type="Script" id=3]
-[ext_resource path="res://textures/unifont-15.0.01.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://fonts/Lato-Regular.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 25.0
@@ -47,6 +47,7 @@ collision_mask = 2
 shape = SubResource( 2 )
 
 [node name="Screen" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource( 3 )
 
 [node name="WhiteWipe" type="Panel" parent="Screen"]
