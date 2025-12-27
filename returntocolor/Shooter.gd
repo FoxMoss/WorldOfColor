@@ -21,6 +21,7 @@ var added_rotation = 0
 var life: float = 0
 var last_color = Color.from_hsv(0,1,1)
 
+var start_pos: Vector2
 var p1: Vector2
 var p2: Vector2
 var dist_from_player: Vector2
@@ -39,6 +40,7 @@ func _ready():
 	p1 = $p1.global_position
 	p2 = $p2.global_position
 	dist_from_player = get_node("/root/Main/Player").position - position
+	start_pos = position
 
 func _process(delta):
 	
@@ -62,6 +64,12 @@ func _process(delta):
 			position = lerp(p2, p1, life/move_length-1)
 		$MainBody.rotation = lerp_angle($MainBody.rotation, added_rotation/10, 0.1)
 	else:
+		print((get_node("/root/Main/Player").position.x > p1.x && get_node("/root/Main/Player").position.x < p2.x
+			&& get_node("/root/Main/Player").position.y > p1.y && get_node("/root/Main/Player").position.y < p2.y))
+		if(!(get_node("/root/Main/Player").position.x > p1.x && get_node("/root/Main/Player").position.x < p2.x
+			&& get_node("/root/Main/Player").position.y > p1.y && get_node("/root/Main/Player").position.y < p2.y)):
+			position = start_pos
+			dist_from_player = get_node("/root/Main/Player").position - position
 		position = get_node("/root/Main/Player").position - dist_from_player
 		position.x = clamp(position.x, p1.x, p2.x)
 		position.y = clamp(position.y, p1.y, p2.y)

@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://script/Screen.gd" type="Script" id=1]
-[ext_resource path="res://textures/unifont-15.0.01.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://textures/player/1.png" type="Texture" id=3]
 [ext_resource path="res://script/Map.gd" type="Script" id=4]
 [ext_resource path="res://textures/keyboard/Dark/Arrow_Right_Key_Dark.png" type="Texture" id=5]
@@ -31,7 +30,7 @@ corner_detail = 1
 
 [sub_resource type="DynamicFont" id=4]
 size = 32
-font_data = ExtResource( 2 )
+font_data = ExtResource( 7 )
 
 [node name="Map" type="Node2D"]
 position = Vector2( 1, 0 )

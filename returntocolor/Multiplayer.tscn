@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://script/Screen.gd" type="Script" id=1]
+[ext_resource path="res://scene/Checkpoint.tscn" type="PackedScene" id=2]
+[ext_resource path="res://textures/wall/1.png" type="Texture" id=3]
+[ext_resource path="res://scene/MultiplayerPlayer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://script/BulletManager.gd" type="Script" id=6]
+[ext_resource path="res://fonts/Lato-Regular.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="ConvexPolygonShape2D" id=23]
+points = PoolVector2Array( 51, 51, 0, 51, 0, 0, 51, 0 )
+
+[sub_resource type="TileSet" id=24]
+0/name = "1.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 51, 51 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 23 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 23 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="StyleBoxFlat" id=25]
+bg_color = Color( 0.756863, 0.74902, 0.745098, 1 )
+corner_detail = 1
+
+[sub_resource type="DynamicFont" id=26]
+size = 32
+font_data = ExtResource( 7 )
+
+[node name="Main" type="Node2D"]
+
+[node name="SpitManager" type="Node2D" parent="."]
+
+[node name="BulletManager" type="Node2D" parent="."]
+script = ExtResource( 6 )
+
+[node name="ShooterManager" type="Node2D" parent="."]
+
+[node name="BlockManager" type="Node2D" parent="."]
+
+[node name="CheckpointManager" type="Node2D" parent="."]
+z_index = -1
+
+[node name="1" parent="CheckpointManager" instance=ExtResource( 2 )]
+position = Vector2( 0, 714 )
+
+[node name="WallManager" type="TileMap" parent="."]
+z_index = -4
+z_as_relative = false
+tile_set = SubResource( 24 )
+cell_size = Vector2( 51, 51 )
+centered_textures = true
+format = 1
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+
+[node name="Player2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 304, 8 )
+
+[node name="CameraFollower" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="CameraFollower"]
+current = true
+smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Screen" type="CanvasLayer" parent="CameraFollower/Camera2D"]
+script = ExtResource( 1 )
+
+[node name="WhiteWipe" type="Panel" parent="CameraFollower/Camera2D/Screen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -5.0
+margin_top = -5.0
+margin_right = 5.0
+margin_bottom = 5.0
+custom_styles/panel = SubResource( 25 )
+
+[node name="Time" type="Label" parent="CameraFollower/Camera2D/Screen"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 26 )

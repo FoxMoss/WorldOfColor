@@ -63,8 +63,21 @@ var og = [
 	}
 ]
 
+var returntocolor_levels
+var returntocolor_og = [
+	{
+		"completed_req": 0,
+		"name": "Level 1: A have a mouth.",
+		"color": "93aae2",
+		"path": "res://returntocolor/Level1.tscn",
+		"completed": false,
+		"invisible": false
+	},
+]
+
 var show_timer = false
 var time_offset = 0
 
 func _ready():
 	levels = og.duplicate(true)
+	returntocolor_levels = returntocolor_og.duplicate()

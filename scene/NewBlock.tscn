@@ -5,34 +5,31 @@
 [ext_resource path="res://textures/key/1.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 102, 51 )
+extents = Vector2( 104, 48 )
 
 [sub_resource type="CircleShape2D" id=6]
 radius = 35.0143
 
 [node name="Block" type="StaticBody2D"]
-position = Vector2( 0, 612 )
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -102 )
 shape = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.898039, 0.239216, 0.388235, 1 )
-position = Vector2( -3.8147e-06, -102 )
-scale = Vector2( 3.1875, 1.59375 )
+position = Vector2( 0, -1.90735e-06 )
+scale = Vector2( 3.25, 1.5 )
 texture = ExtResource( 2 )
 
 [node name="Key" type="Area2D" parent="."]
+position = Vector2( 0, 128 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key"]
-position = Vector2( 3, 193 )
 shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Key"]
-position = Vector2( 3, 193 )
 scale = Vector2( 0.398438, 0.398437 )
 texture = ExtResource( 3 )
 

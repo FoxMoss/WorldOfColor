@@ -40,14 +40,13 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="Hurt" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
+collision_mask = 4
 
 [node name="Hurtbox" type="CollisionShape2D" parent="Hurt"]
 shape = SubResource( 2 )
 
 [node name="Screen" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource( 3 )
 
 [node name="WhiteWipe" type="Panel" parent="Screen"]
