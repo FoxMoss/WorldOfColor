@@ -5,3 +5,4 @@ var deathday: int
 var distance: int
 var sine: float
 var sine_slowdown: float
+

@@ -67,9 +67,18 @@ var returntocolor_levels
 var returntocolor_og = [
 	{
 		"completed_req": 0,
-		"name": "Level 1: A have a mouth.",
+		"name": "I have no mouth.",
 		"color": "93aae2",
 		"path": "res://returntocolor/Level1.tscn",
+		"completed": false,
+		"invisible": false
+	},
+	
+	{
+		"completed_req": 0,
+		"name": "I must scream.",
+		"color": "93aae2",
+		"path": "res://returntocolor/Multiplayer.tscn",
 		"completed": false,
 		"invisible": false
 	},

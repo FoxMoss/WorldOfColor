@@ -435,7 +435,7 @@ follow_player = true
 material = SubResource( 31 )
 
 [node name="p1" parent="ShooterManager/Spinner12" index="2"]
-position = Vector2( 72, -320 )
+position = Vector2( 63.9985, 0.00012207 )
 
 [node name="p2" parent="ShooterManager/Spinner12" index="3"]
 position = Vector2( -880, -896 )
@@ -454,7 +454,7 @@ follow_player = true
 material = SubResource( 31 )
 
 [node name="p1" parent="ShooterManager/Spinner13" index="2"]
-position = Vector2( 200, -320 )
+position = Vector2( 191.999, 0.00012207 )
 
 [node name="p2" parent="ShooterManager/Spinner13" index="3"]
 position = Vector2( -752, -896 )
@@ -473,7 +473,7 @@ follow_player = true
 material = SubResource( 31 )
 
 [node name="p1" parent="ShooterManager/Spinner14" index="2"]
-position = Vector2( 328, -320 )
+position = Vector2( 319.999, 0.00012207 )
 
 [node name="p2" parent="ShooterManager/Spinner14" index="3"]
 position = Vector2( -624, -896 )
@@ -492,7 +492,7 @@ follow_player = true
 material = SubResource( 31 )
 
 [node name="p1" parent="ShooterManager/Spinner15" index="2"]
-position = Vector2( 456, -320 )
+position = Vector2( 447.999, 0.00012207 )
 
 [node name="p2" parent="ShooterManager/Spinner15" index="3"]
 position = Vector2( -496, -896 )
@@ -528,7 +528,7 @@ follow_player = true
 material = SubResource( 31 )
 
 [node name="p1" parent="ShooterManager/Spinner16" index="2"]
-position = Vector2( 184, -776 )
+position = Vector2( 504, -767.998 )
 
 [node name="p2" parent="ShooterManager/Spinner16" index="3"]
 position = Vector2( -392, 176 )
@@ -629,6 +629,9 @@ position = Vector2( 1904, 2624 )
 [node name="5" parent="CheckpointManager" instance=ExtResource( 2 )]
 position = Vector2( 3776, 2944 )
 
+[node name="Checkpoint" parent="CheckpointManager" instance=ExtResource( 2 )]
+position = Vector2( 5248, 2496 )
+
 [node name="WallManager" type="TileMap" parent="."]
 z_index = -4
 z_as_relative = false
@@ -640,7 +643,7 @@ tile_data = PoolIntArray( -1572903, 0, 0, -1572902, 0, 0, -1572901, 0, 0, -15729
 
 [node name="Sword" parent="." instance=ExtResource( 4 )]
 position = Vector2( 3936, 3664 )
-level = "res://Map.tscn"
+level = "res://returntocolor/Map.tscn"
 id = 2
 
 [node name="Label2" type="Label" parent="."]

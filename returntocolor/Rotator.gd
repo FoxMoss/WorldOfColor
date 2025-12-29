@@ -17,7 +17,7 @@ func _process(delta):
 	
 	var index = 0
 	for child in children:
-		if(get_node(child as NodePath) == null):
+		if(get_node_or_null(child as NodePath) == null):
 			index += 1
 			continue
 		get_node(child as NodePath).global_position = proxy_children[index].global_position

@@ -2,25 +2,27 @@ extends KinematicBody2D
 
 export var speed: float
 export var friction: float
+export var player_input_str: String
 
 var velocity_raw: Vector2 = Vector2.ZERO
 var velocity: Vector2 = Vector2.ZERO
-var respawn: Node2D
 
 var move_rot: float = 0
 
+var start_pos = Vector2.ZERO
+
 func _ready():
-	respawn = get_node("/root/Main/CheckpointManager/1")
+	start_pos = global_position
 
 func _input(event):
 	if(Input.is_action_just_pressed("move_escape")):
-		$Screen.fade_to_white("res://Map.tscn")
+		$'../CameraFollower/Camera2D/Screen'.fade_to_white("res://returntocolor/Map.tscn")
 
 func _physics_process(delta):
-	velocity_raw.y -= Input.get_action_strength("move_up")
-	velocity_raw.y += Input.get_action_strength("move_down")
-	velocity_raw.x += Input.get_action_strength("move_right")
-	velocity_raw.x -= Input.get_action_strength("move_left")
+	velocity_raw.y -= Input.get_action_strength(player_input_str + "_move_up")
+	velocity_raw.y += Input.get_action_strength(player_input_str + "_move_down")
+	velocity_raw.x += Input.get_action_strength(player_input_str + "_move_right")
+	velocity_raw.x -= Input.get_action_strength(player_input_str + "_move_left")
 	
 	
 	velocity += velocity_raw.normalized() * speed
@@ -45,9 +47,12 @@ func _physics_process(delta):
 	$MouthPivot.rotation = lerp_angle($MouthPivot.rotation, move_rot, rot_speed)
 	$MouthPivot/Mouth/Sprites.rotation = -$MouthPivot.rotation
 
-func _respawn_change():
-	respawn.get_node("Sprite").texture = respawn.sprite1
-
 
 func _entered_hurtbox(body):
-	position = respawn.position
+	if(body.player_owner == self):
+		return
+	position = start_pos
+	$'../'.call_loss(player_input_str)
+
+func reset_position():
+	position = start_pos

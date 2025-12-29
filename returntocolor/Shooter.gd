@@ -41,6 +41,7 @@ func _ready():
 	p2 = $p2.global_position
 	dist_from_player = get_node("/root/Main/Player").position - position
 	start_pos = position
+	($Sprite as Sprite).material = ($Sprite as Sprite).material.duplicate(false)
 
 func _process(delta):
 	

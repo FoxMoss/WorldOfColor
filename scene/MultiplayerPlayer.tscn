@@ -1,13 +1,18 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://textures/player/1.png" type="Texture" id=1]
 [ext_resource path="res://returntocolor/MultiplayerPlayer.gd" type="Script" id=2]
+[ext_resource path="res://returntocolor/MultiplayerMouth.gd" type="Script" id=3]
+[ext_resource path="res://returntocolor/textures/error/error2.png" type="Texture" id=4]
 [ext_resource path="res://returntocolor/textures/mouth.png" type="Texture" id=5]
-[ext_resource path="res://returntocolor/Mouth.gd" type="Script" id=6]
+[ext_resource path="res://returntocolor/textures/error/errror5.png" type="Texture" id=6]
 [ext_resource path="res://returntocolor/textures/eye.png" type="Texture" id=7]
 [ext_resource path="res://returntocolor/textures/mouth_chew2.png" type="Texture" id=8]
 [ext_resource path="res://returntocolor/textures/mouth_chew1.png" type="Texture" id=9]
 [ext_resource path="res://returntocolor/textures/mouth_chew3.png" type="Texture" id=10]
+[ext_resource path="res://returntocolor/textures/error/error4.png" type="Texture" id=11]
+[ext_resource path="res://returntocolor/textures/error/error1.png" type="Texture" id=12]
+[ext_resource path="res://returntocolor/textures/error/error3.png" type="Texture" id=13]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 25.0
@@ -24,6 +29,14 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 4.0
+} ]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 4 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 7.0
 } ]
 
 [node name="Player" type="KinematicBody2D"]
@@ -53,7 +66,7 @@ shape = SubResource( 2 )
 position = Vector2( 128, 0 )
 collision_layer = 4
 collision_mask = 4
-script = ExtResource( 6 )
+script = ExtResource( 3 )
 
 [node name="CollisionBox2" type="CollisionShape2D" parent="MouthPivot/Mouth"]
 shape = SubResource( 5 )
@@ -83,9 +96,20 @@ rotation = -3.14159
 scale = Vector2( 0.2188, -0.2188 )
 texture = ExtResource( 7 )
 
+[node name="Error" type="AnimatedSprite" parent="MouthPivot/Mouth/Sprites"]
+visible = false
+position = Vector2( 0, 8.00001 )
+scale = Vector2( 0.34375, 0.34375 )
+frames = SubResource( 7 )
+playing = true
+
 [node name="Timer" type="Timer" parent="MouthPivot/Mouth"]
+one_shot = true
+
+[node name="ReadyTimer" type="Timer" parent="MouthPivot/Mouth"]
 one_shot = true
 
 [connection signal="body_entered" from="Hurt" to="." method="_entered_hurtbox"]
 [connection signal="body_entered" from="MouthPivot/Mouth" to="MouthPivot/Mouth" method="_body_entered"]
 [connection signal="timeout" from="MouthPivot/Mouth/Timer" to="MouthPivot/Mouth" method="_on_timeout"]
+[connection signal="timeout" from="MouthPivot/Mouth/ReadyTimer" to="MouthPivot/Mouth" method="_on_ready_timeout"]
